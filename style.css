@@ -28,6 +28,13 @@
    --border-radius-2: брх;
 }
 
+.dark__theme{
+   --color-white: #131316;
+   --color-light: #23232a;
+   --color-dark: #ddd;
+   --color-gray-dark: #adacb5;
+}
+
 *{
    margin: 0;
    padding: 0;
@@ -132,6 +139,22 @@ small{
 .bg__dark{
    background: #27282f;
    box-shadow: 0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
+}
+
+.bg__purple__light{
+   background: var(--color-purple-light);
+}
+
+.bg__danger__light{
+   background: var(--color-danger-light);
+}
+
+.bg__success__light{
+   background: var(--color-success-light);
+}
+
+.bg__dark__light{
+   background: var(--color-dark-light);
 }
 
 /* ========== NAV BAR ========== */
@@ -362,7 +385,7 @@ main section.middle .cards .card{
    justify-content: space-between;
    box-shadow: 0 2rem 3rem var(--color-danger-light);
    transition: all 300ms ease;
-   min-width: 24rem;
+   min-width: 22rem;
 }
 
 
@@ -507,6 +530,216 @@ canvas#chart{
    margin-top: 2rem;
    border-radius: var(--card-border-radius);
    padding: var(--card-padding);
+}
+
+
+/* ========== INVESTMENTS ========== */
+
+main section.right .investments{
+   background: var(--color-white);
+   border-radius: var(--card-border-radius);
+}
+
+main section.right .investments img{
+   width: 2.4rem;
+}
+
+main section.right .investments .header{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: var(--card-padding);
+   padding-bottom: 0;
+}
+
+main section.right .investments .header a{
+   display: flex;
+   align-items: center;
+   color: var(--color-primary);
+}
+
+main section.right .investments .investment{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: var(--card-padding);
+   border-bottom: 1px solid var(--color-light);
+   transition: all 300ms ease;
+}
+
+main section.right .investments .investment:last-child{
+   border: none;
+}
+
+main section.right .investments .investment:hover{
+   background: var(--color-light);
+   cursor: pointer;
+}
+
+/* ========== RECENT TRANSACTION ========== */
+
+main .recent__transaction{
+   margin-top: 2rem;
+}
+
+main .recent__transaction img{
+   width: 2.2rem;
+}
+
+main .recent__transaction .header{
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 1rem;
+}
+
+.main .recent__transaction .header a{
+   display: flex;
+   align-items: center;
+   color: var(--color-primary);
+}
+
+main .recent__transaction .transaction{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 1.5rem var(--card-padding);
+   border-radius: var(--card-border-radius);
+   transition: all 300ms ease;
+}
+
+main .recent__transaction .transaction:hover{
+   background: var(--color-white);
+   cursor: pointer;
+}
+
+main .recent__transaction .transaction .service{
+   display: flex;
+   gap: 1rem;
+}
+
+main .recent__transaction .transaction .service .icon{
+   padding: var(--padding-2);
+   border-radius: var(--border-radius-1);
+   display: flex;
+   align-items: center;
+}
+
+main .recent__transaction .transaction .service .icon i, ion-icon{
+   font-size: 24px;
+}
+
+main .recent__transaction .card__details{
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+}
+
+main .recent__transaction .card__details .card{
+   display: flex;
+   width: 4.6rem;
+   height: 3rem;
+   align-items: center;
+   justify-content: center;
+   border-radius: 6px;
+}
+
+/* ========== MEDIA ========== */
+
+@media screen and (max-width: 1024px) {
+   nav .search__bar{
+      display: none;
+   }
+
+   nav .profile__area{
+      gap: 2rem;
+   }
+
+   nav .profile__area button{
+      display: inline;
+      background: transparent;
+      color: var(--color-dark);
+   }
+
+   main{
+      grid-template-columns: 1fr;
+   }
+
+   main aside{
+      position: fixed;
+      top: 0;
+      left: -100%;
+      z-index: 3;
+      background: var(--color-white);
+      width: 22rem;
+      height: 100vh;
+      box-shadow: 2rem 0 2rem var(--color-primary-light);
+      display: none;
+      animation: showSidebar 500ms ease forwards;
+   }
+
+   @keyframes showSidebar{
+      to{
+         left: 0;
+      }
+   }
+
+   main aside button#close-btn{
+      display: inline-block;
+      width: 3rem;
+      height: 3rem;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 4;
+      background: transparent;
+      color: var(--color-dark);
+   }
+
+   button:hover{
+      cursor: pointer;
+   }
+
+   main aside .sidebar{
+      margin-top: 4rem;
+   }
+
+   main aside .updates{
+      display: none;
+   }
+
+   main section.middle .cards{
+      grid-template-columns: 1fr 1fr;
+   }
+
+   main canvas{
+      margin: 3rem 0 1rem;
+   }
+
+   main section.right .recent__transaction{
+      margin-top: 3rem;
+   }
+}
+
+@media screen and (max-width: 600px) {
+   nav .profile__area{
+      gap: 2.6rem;
+   }
+
+   nav .profile h5, 
+   nav .profile ion-icon{
+      display: none;
+   }
+
+   main section.middle .cards{
+      grid-template-columns: 1fr;
+   }
+
+   main section.middle .fast__payment{
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 3rem;
+      gap: 1rem;
+   }
 }
 
 
